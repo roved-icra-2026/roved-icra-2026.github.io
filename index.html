@@ -39,6 +39,15 @@
     <link rel="stylesheet" href="./static/css/academicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="./static/css/index.css">
+    <style>
+        .publication-links .link-block a {
+            margin-top: 2px !important;
+            margin-bottom: 2px !important;
+        }
+        .conference-authors {
+            margin-bottom: 0.5rem !important;
+        }
+    </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -54,8 +63,8 @@
 <body>
 
 
-    <section class="hero">
-        <div class="hero-body">
+    <section class="hero" style="padding-bottom: 0 !important;">
+        <div class="hero-body" style="padding-bottom: 1rem !important;">
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
@@ -67,8 +76,6 @@
                           with Vision-Language Embeddings<br>
                           for Preference-Based RL
                         </h1>
-                        <h3 class="title is-4 conference-authors"><a target="_blank" href="https://2026.ieee-icra.org/" style="color: red !important;">ICRA 2026</a>
-                    </h3>
                         <div class="is-size-5 publication-authors">
                             <span class="author-block">
                                 <a target="_blank" href="https://uditaghosh.github.io/"> Udita Ghosh</a><sup>1</sup>,
@@ -83,6 +90,8 @@
                             <span class="author-block"><sup>1</sup>University of California, Riverside, </span>
                             <span class="author-block"><sup>2</sup>AWS AI Labs</span>
                         </div>
+
+                        <h3 class="title is-4 conference-authors" style="margin-top: 1rem; margin-bottom: 0.5rem;"><a target="_blank" href="https://2026.ieee-icra.org/" style="color: red !important;">ICRA 2026</a></h3>
 
                         <div class="column has-text-centered">
                             <div class="publication-links">
@@ -115,14 +124,14 @@
         </div>
     </section>
 
-    <section class="section" style="padding-top: 0.5rem; padding-bottom: 1.5rem;">
+    <section class="section" style="padding-top: 0 !important; padding-bottom: 1.5rem;">
         <div class="container is-max-desktop">
             <!-- TL;DR. -->
             <div class="columns is-centered has-text-centered">
                 <div class="column">
                     <h2 class="title is-3">TL;DR: What is ROVED?</h2><img src="imgs/teaser.png" class="interpolation-image" alt=""
-                    style="display: block; margin-left: auto; margin-right: auto; max-width: 85%; margin-top: 0; margin-bottom: 10px;" />
-                    <div class="content has-text-justified" style="margin-top: 10px;">
+                    style="display: block; margin-left: auto; margin-right: auto; max-width: 85%; margin-top: 0; margin-bottom: 20px;" />
+                    <div class="content has-text-justified" style="margin-top: 0;">
                         <p style="font-size: 125%">
                           <strong>ROVED</strong> (Reducing Oracle Feedback with Vision-Language Embeddings) is a hybrid framework for preference-based reinforcement learning that combines scalable vision-language embedding (VLE) models with targeted oracle feedback. It works in two key stages:
                         </p>
