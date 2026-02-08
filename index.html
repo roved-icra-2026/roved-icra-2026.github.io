@@ -117,27 +117,22 @@
 
     <section class="section">
         <div class="container is-max-desktop">
-            <!-- Abstract. -->
+            <!-- TL;DR. -->
             <div class="columns is-centered has-text-centered">
                 <div class="column">
-                    <h2 class="title is-3">Abstract</h2>
+                    <h2 class="title is-3">TL;DR: What is ROVED?</h2>
                     <div class="content has-text-justified">
                         <p style="font-size: 125%">
-                          Preference-based reinforcement learning can learn effective reward functions from comparisons, 
-                          but its scalability is constrained by the high cost of oracle feedback. Lightweight vision-language 
-                          embedding (VLE) models provide a cheaper alternative, but their noisy outputs limit their effectiveness 
-                          as standalone reward generators. To address this challenge, we propose <strong>ROVED</strong>, a hybrid 
-                          framework that combines VLE-based supervision with targeted oracle feedback. Our method uses the VLE to 
-                          generate segment-level preferences and defers to an oracle only for samples with high uncertainty, identified 
-                          through a filtering mechanism. In addition, we introduce a parameter-efficient fine-tuning method that adapts 
-                          the VLE with the obtained oracle feedback in order to improve the model over time in a synergistic fashion. 
-                          This ensures the retention of the scalability of embeddings and the accuracy of oracles, while avoiding their inefficiencies. 
-                          Across multiple robotic manipulation tasks, ROVED matches or surpasses prior preference-based methods while <strong>reducing 
-                          oracle queries by up to 80%</strong>. Remarkably, the adapted VLE generalizes across tasks, yielding <strong>cumulative annotation 
-                          savings of up to 90%</strong>, highlighting the practicality of combining scalable embeddings with precise oracle supervision for preference-based RL.
-<br>
-<br>
-
+                          <strong>ROVED</strong> (Reducing Oracle Feedback with Vision-Language Embeddings) is a hybrid framework for preference-based reinforcement learning that combines scalable vision-language embedding (VLE) models with targeted oracle feedback. It works in two key stages:
+                        </p>
+                        <p style="font-size: 125%">
+                          <strong>1. VLE-based Preference Generation:</strong> The model uses lightweight VLE models to generate segment-level preferences for trajectory comparisons, providing a scalable alternative to expensive oracle annotations.
+                        </p>
+                        <p style="font-size: 125%">
+                          <strong>2. Selective Oracle Querying:</strong> Using a filtering mechanism with uncertainty thresholds (τ<sub>upper</sub> and τ<sub>lower</sub>), ROVED identifies noisy or uncertain samples and defers only these to the oracle for annotation, dramatically reducing annotation costs.
+                        </p>
+                        <p style="font-size: 125%">
+                          The framework also includes parameter-efficient fine-tuning that adapts the VLE using oracle feedback, creating a synergistic loop where the VLE improves over time. Across multiple robotic manipulation tasks, ROVED matches or surpasses prior methods while <strong>reducing oracle queries by up to 80%</strong> and achieving <strong>cumulative annotation savings of up to 90%</strong> through cross-task generalization.
                         </p>
                     </div>
                 </div>
@@ -145,6 +140,41 @@
         </div>
     </section>
 
+
+    <section class="section" style="background-color: #f5f5f5;">
+      <div class="container is-max-widescreen">
+          <div class="rows">
+              <div class="rows is-centered ">
+                  <div class="row is-full-width">
+                      <h2 class="title is-3 has-text-centered"><span class="dvima">ROVED Framework</span></h2>
+                      <img src="imgs/framework.png" class="interpolation-image" alt=""
+                      style="display: block; margin-left: auto; margin-right: auto; max-width: 80%;" />
+                      <br>
+                      <div class="content has-text-justified">
+                          <p style="font-size: 125%">
+                            <strong>Overview:</strong> Given a task description, ROVED iteratively updates the policy π<sub>φ</sub> via reinforcement learning using the reward model r<sub>θ</sub>. Trajectory segments from the replay buffer are sampled and labeled with VLE-generated preferences. These samples are then classified as clean or noisy using thresholds τ<sub>upper</sub> and τ<sub>lower</sub>. A budgeted subset of noisy samples is sent for oracle annotation. The reward model is trained on both VLE and oracle-labeled preferences, while the VLE is fine-tuned using oracle annotations and replay buffer samples.
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <h2 class="title is-3">Results</h2>
+                    <div class="content has-text-justified">
+                        <p style="font-size: 125%">
+                            <!-- Add your results content here -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <section class="section" id="BibTeX">
     <div class="container is-max-widescreen content">
