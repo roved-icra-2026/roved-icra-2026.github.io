@@ -175,9 +175,20 @@
             <div class="columns is-centered has-text-centered">
                 <div class="column">
                     <h2 class="title is-3">Results</h2>
+                    <img src="imgs/main_learning_curves.png" class="interpolation-image" alt="Main Learning Curves"
+                    style="display: block; margin-left: auto; margin-right: auto; max-width: 100%; margin-top: 20px; margin-bottom: 15px;" />
                     <div class="content has-text-justified">
-                        <p style="font-size: 125%">
-                            <!-- Add your results content here -->
+                        <p style="font-size: 125%; text-align: justify; margin-bottom: 20px;">
+                            <strong>Improved feedback efficiency.</strong> ROVED consistently outperforms all baselines with minimal oracle feedback, matching
+                            or exceeding PEBBLE's performance while requiring 50%-80% fewer annotations. At equal preference counts, ROVED also
+                            outperforms efficient preference based methods like MRN and SURF. Variables (x, y, z) denote the number of oracle preferences used.
+                        </p>
+                    </div>
+                    <img src="imgs/adaptation.png" class="interpolation-image" alt="Adaptation Figure"
+                    style="display: block; margin-left: auto; margin-right: auto; max-width: 100%; margin-top: 30px; margin-bottom: 15px;" />
+                    <div class="content has-text-justified">
+                        <p style="font-size: 125%; text-align: justify; margin-bottom: 20px;">
+                            <strong>Knowledge transfer across tasks.</strong> A key objective of ROVED is to refine the VLE with oracle feedback to reduce inherent noise. We test whether an adapted VLE can generalize to related tasks with minimal additional supervision. Two types of transfer are considered: (1) <em>same task, different object</em>: "door-open" → "drawer-open"; (2) <em>same object, different task</em>: "window-close" → "window-open". In both cases, the VLE for the target task is initialized with weights from the source task, while the rest of the algorithm remains unchanged. With knowledge transfer, ROVED matches or surpasses PEBBLE while reducing annotation requirements by 75–90%. This demonstrates effective transfer in both <em>same task, different object</em> (left) and <em>same object, different task</em> (right) settings. Variables (w, x, y, z) denote the number of preferences used.
                         </p>
                     </div>
                 </div>
