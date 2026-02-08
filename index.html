@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RL-VLM-F</title>
+    <!-- <style>
+      .hover-trigger {
+          position: relative;
+          cursor: pointer;
+      }
+      
+      .hover-trigger:hover .hover-image {
+          display: block;
+      }
+      
+      .hover-image {
+          display: none;
+          position: absolute;
+          left: 100%; /* Position to the right of the trigger text */
+          top: 0;
+          background: #fff;
+          border: 1px solid #ccc;
+          padding: 5px;
+      }
+      
+      /* Adding a border to the hover-trigger for visual clarity */
+      .hover-trigger {
+          border: 1px solid transparent; /* Invisible border to avoid shifting text on hover */
+      }
+    </style> -->
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="./static/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+
+
+                        <!-- <h1 class="title is-1 publication-title">RoboGen: Towards Unleashing Infinite Data for Robot Learning via Generative Simulation</h1> -->
+                        <h1 class="title is-1 publication-title">
+                          Reducing Oracle Feedback with Vision-Language Embeddings for Preference-Based RL
+                        </h1>
+                        <h3 class="title is-4 conference-authors"><a target="_blank" href="https://icml.cc/">ICML 2024</a>
+                    </h3>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a target="_blank" href="https://uditaghosh.github.io/"> Udita Ghosh</a><sup>1</sup>,
+                                <a target="_blank" href="https://driptarc.github.io/">Dripta S. Raychaudhuri</a><sup>2</sup>,
+                                <a target="_blank" href="https://jiachenli94.github.io/">Jiachen Li</a><sup>1</sup>,
+                                <a target="_blank" href="https://sites.google.com/view/arcs-lab/">Konstantinos Karydis</a><sup>1</sup>,
+                                <a target="_blank" href="https://vcg.ece.ucr.edu/amit">Amit K. Roy-Chowdhury</a><sup>1</sup>
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>University of California, Riverside, </span>
+                            <span class="author-block"><sup>2</sup>AWS AI Labs</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- TODO REPLACE ALL LINKS -->
+                                <span class="link-block">
+                                    <a target="_blank" href="https://arxiv.org/abs/2502.01616"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+
+                                <span class="link-block">
+                                    <a target="_blank" href="https://roved-icra-2026.github.io/"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding: 0">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <video poster="" id="" autoplay controls loop width="100%" playbackRate=2.0 style="border-radius: 5px;">
+                    <source src="videos/teaser.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p style="font-size: 125%">
+                          Preference-based reinforcement learning can learn effective reward functions from comparisons, 
+                          but its scalability is constrained by the high cost of oracle feedback. Lightweight vision-language 
+                          embedding (VLE) models provide a cheaper alternative, but their noisy outputs limit their effectiveness 
+                          as standalone reward generators. To address this challenge, we propose <strong>ROVED</strong>, a hybrid 
+                          framework that combines VLE-based supervision with targeted oracle feedback. Our method uses the VLE to 
+                          generate segment-level preferences and defers to an oracle only for samples with high uncertainty, identified 
+                          through a filtering mechanism. In addition, we introduce a parameter-efficient fine-tuning method that adapts 
+                          the VLE with the obtained oracle feedback in order to improve the model over time in a synergistic fashion. 
+                          This ensures the retention of the scalability of embeddings and the accuracy of oracles, while avoiding their inefficiencies. 
+                          Across multiple robotic manipulation tasks, ROVED matches or surpasses prior preference-based methods while <strong>reducing 
+                          oracle queries by up to 80\%</strong>. Remarkably, the adapted VLE generalizes across tasks, yielding <strong>cumulative annotation 
+                          savings of up to 90\%</strong>, highlighting the practicality of combining scalable embeddings with precise oracle supervision for preference-based RL.
+<br>
+<br>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-widescreen content">
+        <h2 class="title">BibTeX</h2>
+        <pre>@misc{ghosh2025preferencevlmleveragingvlms,
+          title={Preference VLM: Leveraging VLMs for Scalable Preference-Based Reinforcement Learning}, 
+          author={Udita Ghosh and Dripta S. Raychaudhuri and Jiachen Li and Konstantinos Karydis and Amit Roy-Chowdhury},
+          year={2025},
+          eprint={2502.01616},
+          archivePrefix={arXiv},
+          primaryClass={cs.LG},
+          url={https://arxiv.org/abs/2502.01616}, 
+    }
+</pre>
+    </div>
+</section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content has-text-centered">
+                        <p>
+                            Website template borrowed from <a
+                            href="https://robogen-ai.github.io/">RoboGen</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+<script>
+
+  timeoutIds = [];
+
+  function populateDemo(imgs, num) {
+      // Get the expanded image
+      var expandImg = document.getElementById("expandedImg-" + num);
+      // Get the image text
+      var imgText = document.getElementById("imgtext-" + num);
+      var answer = document.getElementById("answer-" + num);
+
+      // Use the same src in the expanded image as the image being clicked on from the grid
+      expandImg.src = imgs.src.replace(".png", ".mp4");
+      var video = document.getElementById('demo-video-' + num);
+      // or video = $('.video-selector')[0];
+      video.pause()
+      video.load();
+      video.play();
+      video.removeAttribute('controls');
+
+      console.log(expandImg.src);
+      // Use the value of the alt attribute of the clickable image as text inside the expanded image
+      var qa = imgs.alt.split("[sep]");
+      imgText.innerHTML = qa[0];
+      answer.innerHTML = "";
+
+      // Show the container element (hidden with CSS)
+      expandImg.parentElement.style.display = "block";
+      for (timeoutId of timeoutIds) {
+          clearTimeout(timeoutId);
+      }
+
+      // NOTE (wliang): Modified from original to read from file instead
+      fetch(qa[1])
+          .then(response => response.text())
+          .then(contents => {
+              // Call the processData function and pass the contents as an argument
+              typeWriter(contents, 0, qa[0], num, "imgtext-", "answer-");
+          })
+          .catch(error => console.error('Error reading file:', error));
+  }
+
+  function typeWriter(txt, i, q, num, text1, text2) {
+      var imgText = document.getElementById(text1 + num);
+      var answer = document.getElementById(text2 + num);
+      if (imgText.innerHTML == q) {
+          for (let k = 0; k < 5; k++) {
+              if (i < txt.length) {
+                  if (txt.charAt(i) == "\\") {
+                      answer.innerHTML += "\n";
+                      i += 1;
+                  } else {
+                      answer.innerHTML += txt.charAt(i);
+                  }
+                  i++;
+              }
+          }
+          hljs.highlightAll();
+          timeoutIds.push(setTimeout(typeWriter, 1, txt, i, q, num, text1, text2));
+      }
+  }
+
+</script>
+
+</html>
