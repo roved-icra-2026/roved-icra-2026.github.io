@@ -47,6 +47,51 @@
         .conference-authors {
             margin-bottom: 0.5rem !important;
         }
+        /* Visualization Grid */
+        .viz-grid {
+            display: grid;
+            grid-template-columns: auto repeat(4, 1fr);
+            gap: 12px 16px;
+            align-items: center;
+            justify-items: center;
+            font-family: "Myriad-Pro", "Open Sans", sans-serif;
+        }
+        .viz-grid .col-header {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #333;
+            padding-bottom: 4px;
+            border-bottom: 2px solid #eee;
+            width: 100%;
+            text-align: center;
+        }
+        .viz-grid .row-label {
+            font-weight: 700;
+            font-size: 0.95rem;
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+            white-space: nowrap;
+            padding: 0 4px;
+            justify-self: center;
+        }
+        .viz-grid .row-label.roved { color: #2e7d32; }
+        .viz-grid .row-label.pebble { color: #c62828; }
+        .viz-grid .gif-cell {
+            text-align: center;
+        }
+        .viz-grid .gif-cell img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+            border: 1px solid #e0e0e0;
+        }
+        .viz-grid .gif-cell .gif-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 4px;
+        }
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -191,7 +236,49 @@
                             <strong>Knowledge transfer across tasks.</strong> A key objective of ROVED is to refine the VLE with oracle feedback to reduce inherent noise. We test whether an adapted VLE can generalize to related tasks with minimal additional supervision. Two types of transfer are considered: (1) <em>same task, different object</em>: "door-open" → "drawer-open"; (2) <em>same object, different task</em>: "window-close" → "window-open". In both cases, the VLE for the target task is initialized with weights from the source task, while the rest of the algorithm remains unchanged. With knowledge transfer, ROVED matches or surpasses PEBBLE while reducing annotation requirements by 75–90%. This demonstrates effective transfer in both <em>same task, different object</em> (left) and <em>same object, different task</em> (right) settings. Variables (w, x, y, z) denote the number of preferences used.
                         </p>
                     </div>
+
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top: 0; padding-bottom: 2rem;">
+        <div class="container is-max-widescreen">
+            <h2 class="title is-4 has-text-centered" style="margin-bottom: 1.5rem;">Qualitative Comparison: ROVED vs PEBBLE</h2>
+            <div class="viz-grid">
+                <!-- Header row -->
+                <div></div>
+                <div class="col-header">Button-press</div>
+                <div class="col-header">Door-close</div>
+                <div class="col-header">Window-close</div>
+                <div class="col-header">Drawer-open</div>
+
+                <!-- ROVED(x) row -->
+                <div class="row-label roved">ROVED(x)</div>
+                <div class="gif-cell"><img src="gifs/roved-button-press-x.gif" alt="ROVED button-press"><div class="gif-label">x = 1500</div></div>
+                <div class="gif-cell"><img src="gifs/roved-door-close-x.gif" alt="ROVED door-close"><div class="gif-label">x = 1000</div></div>
+                <div class="gif-cell"><img src="gifs/roved-window-close-x.gif" alt="ROVED window-close"><div class="gif-label">x = 1000</div></div>
+                <div class="gif-cell"><img src="gifs/roved-drawer-open-x.gif" alt="ROVED drawer-open"><div class="gif-label">x = 5000</div></div>
+
+                <!-- PEBBLE(y) row -->
+                <div class="row-label pebble">PEBBLE(y)</div>
+                <div class="gif-cell"><img src="gifs/pebble-button-press-y.gif" alt="PEBBLE button-press"><div class="gif-label">y = 2000</div></div>
+                <div class="gif-cell"><img src="gifs/pebble-door-close-y.gif" alt="PEBBLE door-close"><div class="gif-label">y = 1000</div></div>
+                <div class="gif-cell"><img src="gifs/pebble-window-close-y.gif" alt="PEBBLE window-close"><div class="gif-label">y = 1000</div></div>
+                <div class="gif-cell"><img src="gifs/pebble-drawer-open-y.gif" alt="PEBBLE drawer-open"><div class="gif-label">y = 15000</div></div>
+
+                <!-- PEBBLE(z) row -->
+                <div class="row-label pebble">PEBBLE(z)</div>
+                <div class="gif-cell"><img src="gifs/pebble-button-press-z.gif" alt="PEBBLE button-press"><div class="gif-label">z = 4000</div></div>
+                <div class="gif-cell"><img src="gifs/pebble-door-close-z.gif" alt="PEBBLE door-close"><div class="gif-label">z = 2000</div></div>
+                <div class="gif-cell"><img src="gifs/pebble-window-close-z.gif" alt="PEBBLE window-close"><div class="gif-label">z = 2000</div></div>
+                <div class="gif-cell"><img src="gifs/pebble-drawer-open-z.gif" alt="PEBBLE drawer-open"><div class="gif-label">z = 25000</div></div>
+            </div>
+
+            <div class="content has-text-justified" style="max-width: 960px; margin: 1.5rem auto 0;">
+                <p style="font-size: 125%;">
+                    <strong>Qualitative comparison of learned policies.</strong> ROVED(x) matches the performance of PEBBLE(z) while using at least 50% fewer oracle queries (x &lt; z). PEBBLE(y) policies are suboptimal despite achieving task success—either executing the task inefficiently (door-close) or requiring multiple attempts (button-press, window-close), where x &lt; y &lt; z. Here x, y, z denote the number of oracle preferences provided.
+                </p>
             </div>
         </div>
     </section>
